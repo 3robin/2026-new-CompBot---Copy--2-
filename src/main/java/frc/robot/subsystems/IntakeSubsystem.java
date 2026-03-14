@@ -34,11 +34,6 @@ public class IntakeSubsystem extends SubsystemBase {
     intakeLowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
     intake_lower_leaderMotor.configure(intakeLowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
-    SparkFlexConfig intakeUptakeConfig = new SparkFlexConfig();
-    intakeUptakeConfig.inverted(true);
-    intakeUptakeConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
-    intake_lower_leaderMotor.configure(intakeUptakeConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-
     SparkFlexConfig intakeLowerFollowerConfig = new SparkFlexConfig();
     intakeLowerFollowerConfig.inverted(true);
     intakeLowerFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
@@ -72,7 +67,11 @@ public class IntakeSubsystem extends SubsystemBase {
 
   // A method to set the voltage of the intake roller
   public void setIntakeLower(double voltage) {
-    intake_lower_leaderMotor.setVoltage(voltage);
+    intake_lower_leaderMotor.setVoltage(INTAKE_LOWER_VOLTAGE);
+  }
+
+  public void negSetIntakeLower(double voltage) {
+    intake_lower_leaderMotor.setVoltage(NEGATIVE_INTAKE_LOWER_VOLTAGE);
   }
 
   // A method to set the voltage of the intake roller

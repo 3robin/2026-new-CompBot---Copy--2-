@@ -26,7 +26,7 @@ import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import frc.robot.commands.Climb;
 import frc.robot.commands.IntakeLower;
 import frc.robot.commands.IntakeSpin;
-import frc.robot.commands.IntakeUptake;
+import frc.robot.commands.NegIntakeLower;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.HorizontalTransfer;
 import frc.robot.commands.VerticalTransfer;
@@ -35,6 +35,10 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.HorizontalTransferSubsystem;
 import frc.robot.subsystems.VerticalTransferSubsystem;
 import frc.robot.subsystems.ClimberSubsystem;
+
+import static frc.robot.Constants.ClimberConstants.voltage;
+
+
 import java.io.File;
 import swervelib.SwerveInputStream;
 
@@ -215,31 +219,31 @@ public class RobotContainer
       driverXbox.rightBumper().onTrue(Commands.none());
     
 
-      operatorController.leftBumper().whileTrue(Commands.parallel(
-        new Shoot(flywheelSubsystem),
-        new HorizontalTransfer(HTSubsystem),
-        new VerticalTransfer(VTSubsystem)
-      )
-      );
+      // operatorController.leftBumper().whileTrue(Commands.parallel(
+      //   new Shoot(flywheelSubsystem),
+      //   new HorizontalTransfer(HTSubsystem),
+      //   new VerticalTransfer(VTSubsystem)
+      // )
+      // );
       // ^need to delay until shooter is up to speed
 
-      // operatorController.b().whileTrue(new Shoot(flywheelSubsystem));
-      // flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
+      operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
+      flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
 
-      operatorController.rightBumper().whileTrue(new IntakeLower(intakeSubsystem));
+      operatorController.leftBumper().whileTrue(new NegIntakeLower(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
-      operatorController.rightTrigger().whileTrue(new IntakeUptake(intakeSubsystem));
+      operatorController.rightBumper().whileTrue(new IntakeLower(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
       operatorController.x().whileTrue(new IntakeSpin(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
-      // operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
-      // HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
+      operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
+      HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
 
-      // operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));
-      // VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
+      operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));
+      VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
       // operatorController.b().whileTrue(new Climb(climberSubsystem));
       // climberSubsystem.setDefaultCommand(climberSubsystem.run(() -> climberSubsystem.stop()));

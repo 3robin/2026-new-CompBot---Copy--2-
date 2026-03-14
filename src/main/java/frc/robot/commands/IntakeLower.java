@@ -27,6 +27,7 @@ public class IntakeLower extends Command {
     intakeSubsystem
         .setIntakeLower(
              SmartDashboard.getNumber("intake lower value", INTAKE_LOWER_VOLTAGE));
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled. This
