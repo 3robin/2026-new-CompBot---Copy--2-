@@ -10,12 +10,12 @@ import frc.robot.subsystems.IntakeSubsystem;
 import static frc.robot.Constants.IntakeConstants.*;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class NegIntakeLower extends Command {
+public class IntakeRaise extends Command {
   /** Creates a new Intake. */
 
   IntakeSubsystem intakeSubsystem;
 
-  public NegIntakeLower(IntakeSubsystem intakeSystem) {
+  public IntakeRaise(IntakeSubsystem intakeSystem) {
     addRequirements(intakeSystem);
     this.intakeSubsystem = intakeSystem;
   }
@@ -25,8 +25,8 @@ public class NegIntakeLower extends Command {
   @Override
   public void initialize() {
     intakeSubsystem
-        .negSetIntakeLower(
-             SmartDashboard.getNumber("intake lower value", NEGATIVE_INTAKE_LOWER_VOLTAGE));
+        .setIntakeLower(
+             SmartDashboard.getNumber("intake lower value", INTAKE_LOWER_VOLTAGE));
     
   }
 

@@ -35,10 +35,19 @@ public class IntakeSubsystem extends SubsystemBase {
     intake_lower_leaderMotor.configure(intakeLowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     SparkFlexConfig intakeLowerFollowerConfig = new SparkFlexConfig();
-    intakeLowerFollowerConfig.inverted(true);
     intakeLowerFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
-    intakeLowerFollowerConfig.follow(INTAKE_LOWER_LEADER_ID);
+    intakeLowerFollowerConfig.follow(INTAKE_LOWER_LEADER_ID, true); // true = invert relative to leader
     intake_lower_followerMotor.configure(intakeLowerFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    SparkFlexConfig intakeRaiseConfig = new SparkFlexConfig();
+    intakeRaiseConfig.inverted(true);
+    intakeRaiseConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
+    intake_lower_leaderMotor.configure(intakeRaiseConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    SparkFlexConfig intakeRaiseFollowerConfig = new SparkFlexConfig();
+    intakeRaiseFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
+    intakeRaiseFollowerConfig.follow(INTAKE_LOWER_LEADER_ID, false);
+    intake_lower_followerMotor.configure(intakeRaiseFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     // put default values for various fuel operations onto the dashboard
     // all commands using this subsystem pull values from the dashbaord to allow
@@ -68,10 +77,6 @@ public class IntakeSubsystem extends SubsystemBase {
   // A method to set the voltage of the intake roller
   public void setIntakeLower(double voltage) {
     intake_lower_leaderMotor.setVoltage(INTAKE_LOWER_VOLTAGE);
-  }
-
-  public void negSetIntakeLower(double voltage) {
-    intake_lower_leaderMotor.setVoltage(NEGATIVE_INTAKE_LOWER_VOLTAGE);
   }
 
   // A method to set the voltage of the intake roller

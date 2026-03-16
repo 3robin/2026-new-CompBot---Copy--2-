@@ -26,7 +26,7 @@ import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import frc.robot.commands.Climb;
 import frc.robot.commands.IntakeLower;
 import frc.robot.commands.IntakeSpin;
-import frc.robot.commands.NegIntakeLower;
+import frc.robot.commands.IntakeRaise;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.HorizontalTransfer;
 import frc.robot.commands.VerticalTransfer;
@@ -230,10 +230,13 @@ public class RobotContainer
       operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
       flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
 
-      operatorController.leftBumper().whileTrue(new NegIntakeLower(intakeSubsystem));
+      // operatorController.leftBumper().whileTrue(new NegIntakeLower(intakeSubsystem));
+      // intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
+
+      operatorController.rightBumper().whileTrue(new IntakeRaise(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
-      operatorController.rightBumper().whileTrue(new IntakeLower(intakeSubsystem));
+      operatorController.leftBumper().whileTrue(new IntakeLower(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
       operatorController.x().whileTrue(new IntakeSpin(intakeSubsystem));

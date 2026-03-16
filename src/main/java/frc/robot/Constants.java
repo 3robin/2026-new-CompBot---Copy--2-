@@ -81,9 +81,10 @@ public final class Constants
     // based on exact robot construction.
     // See the Software Guide for tuning information
     public static final double INTAKE_LOWER_VOLTAGE = 2;
-    public static final double INTAKE_SPIN_VOLTAGE = 1;
+    public static final double INTAKE_SPIN_VOLTAGE = 5;
     
     public static final double NEGATIVE_INTAKE_LOWER_VOLTAGE = -3;
+    public static final double voltage = 1;
   }
 
   public static final class HorizontalTransferConstants {
@@ -96,7 +97,7 @@ public final class Constants
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double HORIZONTAL_TRANSFER_VOLTAGE = 1;
+    public static final double HORIZONTAL_TRANSFER_VOLTAGE = 4;
     public static final double voltage = 1;
   }
 
@@ -112,8 +113,8 @@ public final class Constants
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double VERTICAL_TRANSFER_1_VOLTAGE = 1;
-    public static final double VERTICAL_TRANSFER_2_VOLTAGE = 1;
+    public static final double VERTICAL_TRANSFER_1_VOLTAGE = 3;
+    public static final double VERTICAL_TRANSFER_2_VOLTAGE = 3;
     public static final double voltage = 1;
   }
 
