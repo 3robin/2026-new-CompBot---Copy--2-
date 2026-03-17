@@ -54,13 +54,13 @@ public final class Constants
     public static final int FLYWHEEL_LEADER_ID = 20;
     public static final int FLYWHEEL_FOLLOWER_ID = 21;
 
-    // Current limit and nominal voltage for fuel mechanism motors.
-    public static final int FLYWHEEL_SHOOTER_CURRENT_LIMIT = 40;
+    // Current limit
+    public static final int FLYWHEEL_SHOOTER_CURRENT_LIMIT = 60;
 
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double SHOOTER_FLYWHEEL_VOLTAGE = 4;
+    public static final double SHOOTER_FLYWHEEL_VOLTAGE = 2; //Sets speed
     public static final double voltage = 1;
   }
 
@@ -76,14 +76,14 @@ public final class Constants
     public static final int INTAKE_LOWER_CURRENT_LIMIT = 40;
     public static final int INTAKE_LOWER_FOLLOWER_CURRENT_LIMIT = 40;
 
-    public static final int INTAKE_SPIN_CURRENT_LIMIT = 40;
+    public static final int INTAKE_SPIN_CURRENT_LIMIT = 60;
 
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
     public static final double INTAKE_LOWER_VOLTAGE = 5;
-    public static final double INTAKE_LOWER_VOLTAGE_INV = -9;
-    public static final double INTAKE_SPIN_VOLTAGE = 5;
+    public static final double INTAKE_LOWER_VOLTAGE_INV = -11;
+    public static final double INTAKE_SPIN_VOLTAGE = 6;
     public static final double voltage = 1;
   }
 
