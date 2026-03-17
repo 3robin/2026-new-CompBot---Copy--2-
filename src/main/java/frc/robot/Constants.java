@@ -74,16 +74,16 @@ public final class Constants
 
     // Current limit and nominal voltage for fuel mechanism motors.
     public static final int INTAKE_LOWER_CURRENT_LIMIT = 40;
+    public static final int INTAKE_LOWER_FOLLOWER_CURRENT_LIMIT = 40;
 
     public static final int INTAKE_SPIN_CURRENT_LIMIT = 40;
 
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double INTAKE_LOWER_VOLTAGE = 2;
+    public static final double INTAKE_LOWER_VOLTAGE = 5;
+    public static final double INTAKE_LOWER_VOLTAGE_INV = -9;
     public static final double INTAKE_SPIN_VOLTAGE = 5;
-    
-    public static final double NEGATIVE_INTAKE_LOWER_VOLTAGE = -3;
     public static final double voltage = 1;
   }
 

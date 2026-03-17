@@ -29,25 +29,42 @@ public class IntakeSubsystem extends SubsystemBase {
     // create the configuration for the launcher roller, set a current limit, set
     // the motor to inverted so that positive values are used for both intaking and
     // launching, and apply the config to the controller
+
+    // SparkFlexConfig intakeLowerConfig = new SparkFlexConfig();
+    // intakeLowerConfig.inverted(false);
+    // intakeLowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
+    // intake_lower_leaderMotor.configure(intakeLowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    // SparkFlexConfig intakeLowerFollowerConfig = new SparkFlexConfig();
+    
+    // intakeLowerFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
+    // intakeLowerFollowerConfig.follow(INTAKE_LOWER_LEADER_ID, false); // true = invert relative to leader
+    // intake_lower_followerMotor.configure(intakeLowerFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
     SparkFlexConfig intakeLowerConfig = new SparkFlexConfig();
-    intakeLowerConfig.inverted(false);
+    intakeLowerConfig.inverted(true);
     intakeLowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
-    intake_lower_leaderMotor.configure(intakeLowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    intake_lower_leaderMotor.configure(intakeLowerConfig, SparkFlex.ResetMode.kResetSafeParameters, SparkFlex.PersistMode.kPersistParameters);
 
     SparkFlexConfig intakeLowerFollowerConfig = new SparkFlexConfig();
+    
     intakeLowerFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
-    intakeLowerFollowerConfig.follow(INTAKE_LOWER_LEADER_ID, true); // true = invert relative to leader
-    intake_lower_followerMotor.configure(intakeLowerFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    intakeLowerFollowerConfig.follow(INTAKE_LOWER_LEADER_ID,true);
+    intake_lower_followerMotor.configure(intakeLowerFollowerConfig, SparkFlex.ResetMode.kResetSafeParameters, SparkFlex.PersistMode.kPersistParameters);
 
-    SparkFlexConfig intakeRaiseConfig = new SparkFlexConfig();
-    intakeRaiseConfig.inverted(true);
-    intakeRaiseConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
-    intake_lower_leaderMotor.configure(intakeRaiseConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
-    SparkFlexConfig intakeRaiseFollowerConfig = new SparkFlexConfig();
-    intakeRaiseFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
-    intakeRaiseFollowerConfig.follow(INTAKE_LOWER_LEADER_ID, false);
-    intake_lower_followerMotor.configure(intakeRaiseFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+
+
+    // SparkFlexConfig intakeRaiseConfig = new SparkFlexConfig();
+    // intakeRaiseConfig.inverted(true);
+    // intakeRaiseConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
+    // intake_lower_leaderMotor.configure(intakeRaiseConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    // SparkFlexConfig intakeRaiseFollowerConfig = new SparkFlexConfig();
+    // intakeRaiseFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
+    // intakeRaiseFollowerConfig.follow(INTAKE_LOWER_LEADER_ID, false);
+    // intake_lower_followerMotor.configure(intakeRaiseFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     // put default values for various fuel operations onto the dashboard
     // all commands using this subsystem pull values from the dashbaord to allow
@@ -77,6 +94,11 @@ public class IntakeSubsystem extends SubsystemBase {
   // A method to set the voltage of the intake roller
   public void setIntakeLower(double voltage) {
     intake_lower_leaderMotor.setVoltage(INTAKE_LOWER_VOLTAGE);
+  }
+
+  // A method to set the voltage of the intake roller
+  public void setIntakeRaise(double voltage) {
+    intake_lower_leaderMotor.setVoltage(INTAKE_LOWER_VOLTAGE_INV);
   }
 
   // A method to set the voltage of the intake roller

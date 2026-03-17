@@ -25,8 +25,8 @@ public class IntakeRaise extends Command {
   @Override
   public void initialize() {
     intakeSubsystem
-        .setIntakeLower(
-             SmartDashboard.getNumber("intake lower value", INTAKE_LOWER_VOLTAGE));
+        .setIntakeRaise(
+             SmartDashboard.getNumber("intake lower value", INTAKE_LOWER_VOLTAGE_INV));
     
   }
 

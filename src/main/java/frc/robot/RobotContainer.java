@@ -227,6 +227,9 @@ public class RobotContainer
       // );
       // ^need to delay until shooter is up to speed
 
+      // whole transfer system 
+
+
       operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
       flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
 
