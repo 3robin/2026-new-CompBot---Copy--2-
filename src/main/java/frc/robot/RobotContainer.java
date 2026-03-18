@@ -25,9 +25,11 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import frc.robot.commands.Climb;
+import frc.robot.commands.HorizontalReverseTransfer;
 import frc.robot.commands.IntakeLower;
 import frc.robot.commands.IntakeSpin;
 import frc.robot.commands.IntakeRaise;
+import frc.robot.commands.IntakeReverseSpin;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.HorizontalTransfer;
 import frc.robot.commands.VerticalTransfer;
@@ -252,13 +254,12 @@ public class RobotContainer
         )
       ); 
 
-
-      operatorController.x().onTrue(new IntakeSpin(intakeSubsystem));
-      // intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
-
-      // reverse intake here needed too
+      operatorController.x().whileTrue(new IntakeSpin(intakeSubsystem));
+      operatorController.a().whileTrue(new IntakeReverseSpin(intakeSubsystem));
+      intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
       operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
+      operatorController.b().whileTrue(new HorizontalReverseTransfer(HTSubsystem));
       HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
 
       // operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));

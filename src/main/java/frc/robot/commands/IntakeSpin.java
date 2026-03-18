@@ -48,13 +48,13 @@ public class IntakeSpin extends Command {
   // }
 
 
-      @Override
+    @Override
     public void initialize() {
         intakeSubsystem.setIntakeSpin(SmartDashboard.getNumber("intake spin value", INTAKE_SPIN_VOLTAGE));  
     }
 
     @Override
     public boolean isFinished() {
-        return true; // runs once (instant toggle)
+        return false;
     }
 }
