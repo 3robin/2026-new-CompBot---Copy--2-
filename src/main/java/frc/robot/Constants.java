@@ -82,7 +82,7 @@ public final class Constants
     // based on exact robot construction.
     // See the Software Guide for tuning information
     public static final double INTAKE_LOWER_VOLTAGE = 5;
-    public static final double INTAKE_LOWER_VOLTAGE_INV = -11;
+    public static final double INTAKE_LOWER_VOLTAGE_INV = 0;
     public static final double INTAKE_SPIN_VOLTAGE = 6;
     public static final double voltage = 1;
   }

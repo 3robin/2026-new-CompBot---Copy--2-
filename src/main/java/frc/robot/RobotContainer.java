@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
@@ -211,13 +212,14 @@ public class RobotContainer
       driverXbox.rightBumper().onTrue(Commands.none());
     } else
     {
-      driverXbox.a().onTrue((Commands.runOnce(drivebase::zeroGyro)));
+      
       driverXbox.x().onTrue(Commands.runOnce(drivebase::addFakeVisionReading));
       driverXbox.start().whileTrue(Commands.none());
       driverXbox.back().whileTrue(Commands.none());
       driverXbox.leftBumper().whileTrue(Commands.runOnce(drivebase::lock, drivebase).repeatedly());
       driverXbox.rightBumper().onTrue(Commands.none());
-    
+      driverXbox.b().and(driverXbox.a()).onTrue((Commands.runOnce(drivebase::zeroGyro)));
+
 
       // operatorController.leftBumper().whileTrue(Commands.parallel(
       //   new Shoot(flywheelSubsystem),
@@ -242,13 +244,24 @@ public class RobotContainer
       operatorController.leftBumper().whileTrue(new IntakeLower(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
-      operatorController.x().whileTrue(new IntakeSpin(intakeSubsystem));
-      intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
+
+      operatorController.leftTrigger().whileTrue(
+        new ParallelCommandGroup(
+          new HorizontalTransfer(HTSubsystem),
+          new VerticalTransfer(VTSubsystem)
+        )
+      ); 
+
+
+      operatorController.x().onTrue(new IntakeSpin(intakeSubsystem));
+      // intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
+
+      // reverse intake here needed too
 
       operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
       HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
 
-      operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));
+      // operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));
       VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
       // operatorController.b().whileTrue(new Climb(climberSubsystem));
