@@ -60,7 +60,7 @@ public final class Constants
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double SHOOTER_FLYWHEEL_VOLTAGE = 3; //Sets speed
+    public static final double SHOOTER_FLYWHEEL_VOLTAGE = 5.8; //Sets speed
     public static final double voltage = 1;
   }
 
