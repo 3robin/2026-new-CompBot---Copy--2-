@@ -63,7 +63,7 @@ public final class Constants
     public static final double SHOOTER_FLYWHEEL_VOLTAGE = 5.8; //Sets speed
     public static final double voltage = 1;
 
-    public static final double SHOOTER_FLYWHEEL_VELOCITY = 100; 
+    public static final double SHOOTER_FLYWHEEL_VELOCITY = 3000; 
 
     // setting velocity constants
     public static final double FLYWHEEL_MOTOR_P = 0.001;
