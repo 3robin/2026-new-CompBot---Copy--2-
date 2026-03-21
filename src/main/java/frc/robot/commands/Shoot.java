@@ -29,8 +29,7 @@ public class Shoot extends Command {
   @Override
   public void initialize() {
     shooterSubsystem
-        .setflywheelShooter(
-            SmartDashboard.getNumber("flywheel Shooter value", SHOOTER_FLYWHEEL_VOLTAGE));
+        .setflywheelShooterlVelocity( SHOOTER_FLYWHEEL_VELOCITY);
     // fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Launching feeder roller value", LAUNCHING_FEEDER_VOLTAGE));
   }
 

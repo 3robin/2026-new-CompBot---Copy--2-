@@ -10,6 +10,7 @@ import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkFlexConfig;
@@ -23,6 +24,7 @@ public class flywheelShooterSubsystem extends SubsystemBase {
   private final SparkFlex flywheel_leaderMotor;
   private final SparkFlex flywheel_followerMotor;
   private final RelativeEncoder flywheelShooterEncoder;
+  private final SparkClosedLoopController flywheelClosedLoopController;
 
 
   /** Creates a new CANBallSubsystem. 
@@ -32,6 +34,7 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     // create brushed motors for each of the motors on the launcher mechanism
     flywheel_leaderMotor = new SparkFlex(FLYWHEEL_LEADER_ID, MotorType.kBrushless);
     flywheel_followerMotor = new SparkFlex(FLYWHEEL_FOLLOWER_ID, MotorType.kBrushless);
+    flywheelClosedLoopController = flywheel_leaderMotor.getClosedLoopController();
 
     flywheelShooterEncoder = flywheel_leaderMotor.getEncoder();
 
@@ -42,7 +45,6 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     flywheelConfig.inverted(false);
     flywheelConfig.idleMode(IdleMode.kCoast);
     flywheelConfig.smartCurrentLimit(FLYWHEEL_SHOOTER_CURRENT_LIMIT);
-    flywheel_leaderMotor.configure(flywheelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     flywheelConfig.encoder.positionConversionFactor(1.0);
     flywheelConfig.encoder.velocityConversionFactor(1.0);
@@ -59,6 +61,9 @@ public class flywheelShooterSubsystem extends SubsystemBase {
       .forwardSoftLimitEnabled(false)
       .reverseSoftLimit(FLYWHEEL_MOTOR_REV_LIMIT)
       .reverseSoftLimitEnabled(false);
+
+    flywheel_leaderMotor.configure(flywheelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
 
     SparkFlexConfig flywheelfollowerConfig = new SparkFlexConfig();
     flywheelfollowerConfig.inverted(false);
@@ -79,8 +84,9 @@ public class flywheelShooterSubsystem extends SubsystemBase {
   }
 
   public void setflywheelShooterlVelocity(double velocity) {
-    flywheel_leaderMotor.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+    flywheelClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
+
 
   public double getflywheelShooterVelocity() {
     return flywheelShooterEncoder.getVelocity();
