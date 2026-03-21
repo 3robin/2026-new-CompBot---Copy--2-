@@ -4,8 +4,10 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.FeedbackSensor;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -20,6 +22,8 @@ import static frc.robot.Constants.ShooterConstants.*;
 public class flywheelShooterSubsystem extends SubsystemBase {
   private final SparkFlex flywheel_leaderMotor;
   private final SparkFlex flywheel_followerMotor;
+  private final RelativeEncoder flywheelShooterEncoder;
+
 
   /** Creates a new CANBallSubsystem. 
      * @return */
@@ -28,6 +32,8 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     // create brushed motors for each of the motors on the launcher mechanism
     flywheel_leaderMotor = new SparkFlex(FLYWHEEL_LEADER_ID, MotorType.kBrushless);
     flywheel_followerMotor = new SparkFlex(FLYWHEEL_FOLLOWER_ID, MotorType.kBrushless);
+
+    flywheelShooterEncoder = flywheel_leaderMotor.getEncoder();
 
     // create the configuration for the launcher roller, set a current limit, set
     // the motor to inverted so that positive values are used for both intaking and
@@ -46,15 +52,13 @@ public class flywheelShooterSubsystem extends SubsystemBase {
       .p(FLYWHEEL_MOTOR_P, ClosedLoopSlot.kSlot0) // proportional
       .i(FLYWHEEL_MOTOR_I, ClosedLoopSlot.kSlot0) // integral
       .d(FLYWHEEL_MOTOR_D, ClosedLoopSlot.kSlot0) // derivitave
-      .outputRange(-1, 1 ClosedLoopSlot.kSlot0);
+      .outputRange(-1, 1, ClosedLoopSlot.kSlot0);
     // for testnig limit switch input
     flywheelConfig.softLimit
       .forwardSoftLimit(FLYWHEEL_MOTOR_FWD_LIMIT)
-      .forwardSoftLimit(false)
+      .forwardSoftLimitEnabled(false)
       .reverseSoftLimit(FLYWHEEL_MOTOR_REV_LIMIT)
-      .reverseSoftLimit(false);
-
-
+      .reverseSoftLimitEnabled(false);
 
     SparkFlexConfig flywheelfollowerConfig = new SparkFlexConfig();
     flywheelfollowerConfig.inverted(false);
@@ -72,6 +76,14 @@ public class flywheelShooterSubsystem extends SubsystemBase {
   // A method to set the voltage of the intake roller
   public void setflywheelShooter(double voltage) {
     flywheel_leaderMotor.setVoltage(voltage);
+  }
+
+  public void setflywheelShooterlVelocity(double velocity) {
+    flywheel_leaderMotor.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  public double getflywheelShooterVelocity() {
+    return flywheelShooterEncoder.getVelocity();
   }
 
   // A method to set the voltage of the intake roller
