@@ -62,6 +62,14 @@ public final class Constants
     // See the Software Guide for tuning information
     public static final double SHOOTER_FLYWHEEL_VOLTAGE = 5.8; //Sets speed
     public static final double voltage = 1;
+
+    // setting velocity constants
+    public static final double FLYWHEEL_MOTOR_P = 0
+    public static final double FLYWHEEL_MOTOR_I = 0
+    public static final double FLYWHEEL_MOTOR_D = 0
+
+    public static final double FLYWHEEL_MOTOR_FWD_LIMIT = 0
+    public static final double FLYWHEEL_MOTOR_REV_LIMIT = 0
   }
 
   public static final class IntakeConstants {

@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.spark.ClosedLoopSlot;
+import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -35,6 +37,24 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     flywheelConfig.idleMode(IdleMode.kCoast);
     flywheelConfig.smartCurrentLimit(FLYWHEEL_SHOOTER_CURRENT_LIMIT);
     flywheel_leaderMotor.configure(flywheelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    flywheelConfig.encoder.positionConversionFactor(1.0);
+    flywheelConfig.encoder.velocityConversionFactor(1.0);
+    flywheelConfig.closedLoop
+      .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+      // Set PID values for velocity control in slot 0
+      .p(FLYWHEEL_MOTOR_P, ClosedLoopSlot.kSlot0) // proportional
+      .i(FLYWHEEL_MOTOR_I, ClosedLoopSlot.kSlot0) // integral
+      .d(FLYWHEEL_MOTOR_D, ClosedLoopSlot.kSlot0) // derivitave
+      .outputRange(-1, 1 ClosedLoopSlot.kSlot0);
+    // for testnig limit switch input
+    flywheelConfig.softLimit
+      .forwardSoftLimit(FLYWHEEL_MOTOR_FWD_LIMIT)
+      .forwardSoftLimit(false)
+      .reverseSoftLimit(FLYWHEEL_MOTOR_REV_LIMIT)
+      .reverseSoftLimit(false);
+
+
 
     SparkFlexConfig flywheelfollowerConfig = new SparkFlexConfig();
     flywheelfollowerConfig.inverted(false);
