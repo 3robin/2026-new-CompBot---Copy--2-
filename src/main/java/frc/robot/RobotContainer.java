@@ -101,7 +101,7 @@ public class RobotContainer
                                                                         2))
                                                                     .deadband(OperatorConstants.DEADBAND)
                                                                     .scaleTranslation(0.8)
-                                                                    .allianceRelativeControl(true);
+                                                                    .allianceRelativeControl(false);
   // Derive the heading axis with math!
   SwerveInputStream driveDirectAngleKeyboard     = driveAngularVelocityKeyboard.copy()
                                                                                .withControllerHeadingAxis(() ->
@@ -137,14 +137,15 @@ public class RobotContainer
 
     NamedCommands.registerCommand("shoot", (new Shoot(flywheelSubsystem)));
 
-    NamedCommands.registerCommand("horizontal_transfer", Commands.print("I EXIST"));
+    NamedCommands.registerCommand("horizontal_transfer", (new HorizontalTransfer(HTSubsystem)));
 
-    NamedCommands.registerCommand("vertical+_transfer", Commands.print("I EXIST"));
+    NamedCommands.registerCommand("vertical_transfer", (new VerticalTransfer(VTSubsystem)));
 
-    NamedCommands.registerCommand("intake_roller", Commands.print("I EXIST"));
+    NamedCommands.registerCommand("intake_roller", (new IntakeSpin(intakeSubsystem)));
 
-    NamedCommands.registerCommand("intake_arm", Commands.print("I EXIST"));
+    NamedCommands.registerCommand("intake_arm_down", (new IntakeLower(intakeSubsystem)));
 
+    NamedCommands.registerCommand("intake_arm_up", (new IntakeRaise(intakeSubsystem)));
 
 
     //Have the autoChooser pull in all PathPlanner autos as options
