@@ -79,7 +79,7 @@ public class RobotContainer
                                                             .withControllerRotationAxis(driverXbox::getRightX)
                                                             .deadband(OperatorConstants.DEADBAND)
                                                             .scaleTranslation(0.8)
-                                                            .allianceRelativeControl(true);
+                                                            .allianceRelativeControl(false);
 
   /**
    * Clone's the angular velocity input stream and converts it to a fieldRelative input stream.
@@ -134,6 +134,18 @@ public class RobotContainer
     
     //Create the NamedCommands that will be used in PathPlanner
     NamedCommands.registerCommand("test", Commands.print("I EXIST"));
+
+    NamedCommands.registerCommand("shoot", (new Shoot(flywheelSubsystem)));
+
+    NamedCommands.registerCommand("horizontal_transfer", Commands.print("I EXIST"));
+
+    NamedCommands.registerCommand("vertical+_transfer", Commands.print("I EXIST"));
+
+    NamedCommands.registerCommand("intake_roller", Commands.print("I EXIST"));
+
+    NamedCommands.registerCommand("intake_arm", Commands.print("I EXIST"));
+
+
 
     //Have the autoChooser pull in all PathPlanner autos as options
     autoChooser = AutoBuilder.buildAutoChooser();
