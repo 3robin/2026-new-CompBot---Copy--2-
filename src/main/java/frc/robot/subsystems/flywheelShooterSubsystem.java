@@ -87,7 +87,6 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     flywheelClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
-
   public double getflywheelShooterVelocity() {
     return flywheelShooterEncoder.getVelocity();
   }

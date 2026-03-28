@@ -4,8 +4,10 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.SparkFlex;
@@ -17,6 +19,8 @@ import static frc.robot.Constants.ClimberConstants.*;
 public class ClimberSubsystem extends SubsystemBase {
   private final SparkFlex climber_leaderMotor;
   private final SparkFlex climber_followerMotor;
+  private final RelativeEncoder ClimberEncoder;
+  private final SparkClosedLoopController ClimberClosedLoopController;
 
   /** Creates a new CANBallSubsystem. 
      * @return */
@@ -25,6 +29,9 @@ public class ClimberSubsystem extends SubsystemBase {
     // create brushed motors for each of the motors on the launcher mechanism
     climber_leaderMotor = new SparkFlex(CLIMBER_LEADER_ID, MotorType.kBrushless);
     climber_followerMotor = new SparkFlex(CLIMBER_FOLLOWER_ID, MotorType.kBrushless);
+
+    ClimberClosedLoopController = climber_leaderMotor.getClosedLoopController();
+    ClimberEncoder = climber_leaderMotor.getEncoder();
 
     // create the configuration for the launcher roller, set a current limit, set
     // the motor to inverted so that positive values are used for both intaking and

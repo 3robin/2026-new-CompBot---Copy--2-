@@ -6,8 +6,10 @@ package frc.robot.subsystems;
 
 import static frc.robot.Constants.HorizontalTransferConstants.*;
 
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
@@ -17,6 +19,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class HorizontalTransferSubsystem extends SubsystemBase {
   private final SparkFlex Horizontal_TransferMotor;
+  private final RelativeEncoder HorizontalTransferEncoder;
+  private final SparkClosedLoopController HorizontalTransferClosedLoopController;
 
   /** Creates a new CANBallSubsystem. 
      * @return */
@@ -24,6 +28,9 @@ public class HorizontalTransferSubsystem extends SubsystemBase {
     public HorizontalTransferSubsystem() {
     // create brushed motors for each of the motors on the launcher mechanism
     Horizontal_TransferMotor = new SparkFlex(HORIZONTAL_TRANSFER_ID, MotorType.kBrushless);
+
+    HorizontalTransferClosedLoopController = Horizontal_TransferMotor.getClosedLoopController();
+    HorizontalTransferEncoder = Horizontal_TransferMotor.getEncoder();
 
     // create the configuration for the launcher roller, set a current limit, set
     // the motor to inverted so that positive values are used for both intaking and
