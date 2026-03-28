@@ -38,6 +38,7 @@ public class VerticalTransfer extends Command {
   public void initialize() {
     VTSubsystem
       .setVerticalTransfer1Velocity(VERTICAL_TRANSFER_1_VELOCITY);
+    VTSubsystem
       .setVerticalTransfer2Velocity(VERTICAL_TRANSFER_2_VELOCITY);
   }
   

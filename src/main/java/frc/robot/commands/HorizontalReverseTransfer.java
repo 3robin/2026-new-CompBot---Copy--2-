@@ -24,11 +24,11 @@ public class HorizontalReverseTransfer extends Command {
     //     HTSubsystem.setHorizontalTransfer(HORIZONTAL_REV_TRANSFER_VOLTAGE);
     // }
 
-    // @Override
-    // public void initialize() {
-    //   HTSubsystem
-    //       .setHorizontalTransferVelocity(HORIZONTAL_TRANSFER_REV_VELOCITY);
-    // }
+    @Override
+    public void initialize() {
+      HTSubsystem
+          .setHorizontalReverseTransferVelocity(HORIZONTAL_TRANSFER_REV_VELOCITY);
+    }
 
     // Called every time the scheduler runs while the command is scheduled. This
     // command doesn't require updating any values while running

@@ -88,7 +88,7 @@ public class ClimberSubsystem extends SubsystemBase {
     //feederRoller.setVoltage(voltage);
   //}
 
-  public void setcClimberVelocity(double velocity) {
+  public void setClimberVelocity(double velocity) {
     ClimberClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 

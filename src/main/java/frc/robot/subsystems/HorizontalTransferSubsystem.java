@@ -81,11 +81,19 @@ public class HorizontalTransferSubsystem extends SubsystemBase {
     //feederRoller.setVoltage(voltage);
   //}
 
-  public void setHorizontalTransferlVelocity(double velocity) {
+  public void setHorizontalTransferVelocity(double velocity) {
     HorizontalTransferClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
-  public double getintakeLowerVelocity() {
+  public double getHorizontalTransferVelocity() {
+    return HorizontalTransferEncoder.getVelocity();
+  }
+
+  public void setHorizontalReverseTransferVelocity(double velocity) {
+    HorizontalTransferClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  public double getHorizontalReverseTransferVelocity() {
     return HorizontalTransferEncoder.getVelocity();
   }
 

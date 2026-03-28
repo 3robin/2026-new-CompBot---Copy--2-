@@ -119,16 +119,19 @@ public class VerticalTransferSubsystem extends SubsystemBase {
     //feederRoller.setVoltage(voltage);
   //}
 
-  public void setVerticalTransferVelocity(double velocity) {
+  public void setVerticalTransfer1Velocity(double velocity) {
     VerticalTransfer1ClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  public void setVerticalTransfer2Velocity(double velocity) {
     VerticalTransfer2ClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
-  public double setVerticalTransfer1Velocity() {
+  public double getVerticalTransfer1Velocity() {
     return VerticalTransfer1Encoder.getVelocity();
   }
 
-  public double setVerticalTransfer2Velocity() {
+  public double getVerticalTransfer2Velocity() {
     return VerticalTransfer2Encoder.getVelocity();
   }
 

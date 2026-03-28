@@ -30,11 +30,11 @@ public class Climb extends Command {
   //       SmartDashboard.getNumber("climber value", CLIMBER_VOLTAGE));
   // }
 
-  // @Override
-  // public void initialize() {
-  //   climberSubsystem
-  //       .setClimberVelocity(CLIMBER_VELOCITY);
-  // }
+  @Override
+  public void initialize() {
+    climberSubsystem
+        .setClimberVelocity(CLIMBER_VELOCITY);
+  }
 
   // Called every time the scheduler runs while the command is scheduled. This
   // command doesn't require updating any values while running

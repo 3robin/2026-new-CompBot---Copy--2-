@@ -260,22 +260,22 @@ public class RobotContainer
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
 
-      operatorController.leftTrigger().whileTrue(
-        new ParallelCommandGroup(
-          new HorizontalTransfer(HTSubsystem),
-          new VerticalTransfer(VTSubsystem)
-        )
-      ); 
+      // operatorController.leftTrigger().whileTrue(
+      //   new ParallelCommandGroup(
+      //     new HorizontalTransfer(HTSubsystem),
+      //     new VerticalTransfer(VTSubsystem)
+      //   )
+      // ); 
 
       operatorController.x().whileTrue(new IntakeSpin(intakeSubsystem));
       operatorController.a().whileTrue(new IntakeReverseSpin(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
-      operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
-      operatorController.b().whileTrue(new HorizontalReverseTransfer(HTSubsystem));
-      HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
+      // operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
+      // operatorController.b().whileTrue(new HorizontalReverseTransfer(HTSubsystem));
+      // HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
 
-      // operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));
+      operatorController.leftTrigger().whileTrue(new VerticalTransfer(VTSubsystem));
       VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
       // operatorController.b().whileTrue(new Climb(climberSubsystem));
