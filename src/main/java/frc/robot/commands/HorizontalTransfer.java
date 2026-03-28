@@ -26,13 +26,19 @@ public class HorizontalTransfer extends Command {
 
 // Called when the command is initially scheduled. Set the rollers to the
  // appropriate values for intaking
-  @Override
-  public void initialize() {
-    HTSubsystem
-        .setHorizontalTransfer(
-            SmartDashboard.getNumber("horizontal transfer value", HORIZONTAL_TRANSFER_VOLTAGE));
-    // fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Launching feeder roller value", LAUNCHING_FEEDER_VOLTAGE));
-  }
+  // @Override
+  // public void initialize() {
+  //   HTSubsystem
+  //       .setHorizontalTransfer(
+  //           SmartDashboard.getNumber("horizontal transfer value", HORIZONTAL_TRANSFER_VOLTAGE));
+  //   // fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Launching feeder roller value", LAUNCHING_FEEDER_VOLTAGE));
+  // }
+
+  // @Override
+  // public void initialize() {
+  //   HTSubsystem
+  //       .setHorizontalTransferVelocity(HORIZONTAL_TRANSFER_VELOCITY);
+  // }
 
   // Called every time the scheduler runs while the command is scheduled. This
   // command doesn't require updating any values while running

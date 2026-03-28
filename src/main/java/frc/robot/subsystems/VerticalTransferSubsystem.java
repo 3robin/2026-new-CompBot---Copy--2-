@@ -25,7 +25,7 @@ public class VerticalTransferSubsystem extends SubsystemBase {
   private final SparkFlex Vertical_Transfer_1Motor;
   private final SparkFlex Vertical_Transfer_2Motor;
   private final RelativeEncoder VerticalTransfer1Encoder;
-    private final RelativeEncoder VerticalTransfer2Encoder;
+  private final RelativeEncoder VerticalTransfer2Encoder;
   private final SparkClosedLoopController VerticalTransfer1ClosedLoopController;
   private final SparkClosedLoopController VerticalTransfer2ClosedLoopController;
 
@@ -144,8 +144,5 @@ public class VerticalTransferSubsystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  public void setVerticalTransfer1Velocity(double verticalTransfer1Velocity) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'setVerticalTransfer1Velocity'");
-  }
+
 }

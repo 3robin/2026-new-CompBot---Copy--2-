@@ -37,8 +37,8 @@ public class VerticalTransfer extends Command {
   @Override
   public void initialize() {
     VTSubsystem
-        .setVerticalTransfer1Velocity(VERTICAL_TRANSFER_1_VELOCITY);
-        .setVerticalTransfer2Velocity(VERTICAL_TRANSFER_2_VELOCITY);
+      .setVerticalTransfer1Velocity(VERTICAL_TRANSFER_1_VELOCITY);
+      .setVerticalTransfer2Velocity(VERTICAL_TRANSFER_2_VELOCITY);
   }
   
   // Called every time the scheduler runs while the command is scheduled. This
