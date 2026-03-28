@@ -83,7 +83,7 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     flywheel_leaderMotor.setVoltage(voltage);
   }
 
-  public void setflywheelShooterlVelocity(double velocity) {
+  public void setflywheelShooterVelocity(double velocity) {
     flywheelClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 

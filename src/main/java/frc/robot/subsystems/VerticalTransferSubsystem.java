@@ -24,7 +24,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class VerticalTransferSubsystem extends SubsystemBase {
   private final SparkFlex Vertical_Transfer_1Motor;
   private final SparkFlex Vertical_Transfer_2Motor;
-  private final RelativeEncoder VerticalTransferEncoder;
+  private final RelativeEncoder VerticalTransfer1Encoder;
+    private final RelativeEncoder VerticalTransfer2Encoder;
   private final SparkClosedLoopController VerticalTransfer1ClosedLoopController;
   private final SparkClosedLoopController VerticalTransfer2ClosedLoopController;
 
@@ -38,8 +39,9 @@ public class VerticalTransferSubsystem extends SubsystemBase {
     Vertical_Transfer_2Motor = new SparkFlex(VERTICAL_TRANSFER_2_ID, MotorType.kBrushless);
 
     VerticalTransfer1ClosedLoopController = Vertical_Transfer_1Motor.getClosedLoopController();
-    VerticalTransferEncoder = Vertical_Transfer_1Motor.getEncoder();
+    VerticalTransfer1Encoder = Vertical_Transfer_1Motor.getEncoder();
     VerticalTransfer2ClosedLoopController = Vertical_Transfer_2Motor.getClosedLoopController();
+    VerticalTransfer2Encoder = Vertical_Transfer_2Motor.getEncoder();
 
     SparkFlexConfig VerticalTransfer1Config = new SparkFlexConfig();
     VerticalTransfer1Config.inverted(false);
@@ -122,8 +124,12 @@ public class VerticalTransferSubsystem extends SubsystemBase {
     VerticalTransfer2ClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
-  public double setVerticalTransferVelocity() {
-    return VerticalTransferEncoder.getVelocity();
+  public double setVerticalTransfer1Velocity() {
+    return VerticalTransfer1Encoder.getVelocity();
+  }
+
+  public double setVerticalTransfer2Velocity() {
+    return VerticalTransfer2Encoder.getVelocity();
   }
 
   // A method to stop the rollers 
@@ -137,5 +143,9 @@ public class VerticalTransferSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+  public void setVerticalTransfer1Velocity(double verticalTransfer1Velocity) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'setVerticalTransfer1Velocity'");
   }
 }

@@ -19,11 +19,16 @@ public class IntakeReverseSpin extends Command {
         this.intakeSubsystem = intakeSystem;
     }
 
+    // @Override
+    // public void initialize() {
+    //     intakeSubsystem.setIntakeSpin(INTAKE_REV_SPIN_VOLTAGE);  
+    // }
 
     @Override
     public void initialize() {
-        intakeSubsystem.setIntakeSpin(INTAKE_REV_SPIN_VOLTAGE);  
-    }
+        intakeSubsystem
+        .setintakeSpinVelocity(INTAKE_SPIN_REV_VELOCITY);
+  }
   
     @Override
     public void execute() {

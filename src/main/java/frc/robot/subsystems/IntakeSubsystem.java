@@ -161,7 +161,7 @@ public class IntakeSubsystem extends SubsystemBase {
     intake_spinMotor.setVoltage(voltage);
   }
 
-  public void setintakeLowerlVelocity(double velocity) {
+  public void setintakeLowerVelocity(double velocity) {
     intakeLowerClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
@@ -169,7 +169,15 @@ public class IntakeSubsystem extends SubsystemBase {
     return intakeLowerEncoder.getVelocity();
   }
 
-  public void setintakeSpinlVelocity(double velocity) {
+  public void setintakeRaiseVelocity(double velocity) {
+    intakeLowerClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  public double getintakeRaiseVelocity() {
+    return intakeLowerEncoder.getVelocity();
+  }
+
+  public void setintakeSpinVelocity(double velocity) {
     intakeSpinClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 

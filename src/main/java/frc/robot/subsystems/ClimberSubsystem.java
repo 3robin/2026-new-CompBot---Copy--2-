@@ -5,6 +5,9 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.spark.ClosedLoopSlot;
+import com.revrobotics.spark.FeedbackSensor;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkClosedLoopController;
@@ -36,9 +39,31 @@ public class ClimberSubsystem extends SubsystemBase {
     // create the configuration for the launcher roller, set a current limit, set
     // the motor to inverted so that positive values are used for both intaking and
     // launching, and apply the config to the controller
+    // SparkFlexConfig climberConfig = new SparkFlexConfig();
+    // climberConfig.inverted(false);
+    // climberConfig.smartCurrentLimit(CLIMBER_CURRENT_LIMIT);
+    // climber_leaderMotor.configure(climberConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
     SparkFlexConfig climberConfig = new SparkFlexConfig();
-    climberConfig.inverted(false);
+    climberConfig.inverted(true);
     climberConfig.smartCurrentLimit(CLIMBER_CURRENT_LIMIT);
+
+    climberConfig.encoder.positionConversionFactor(1.0);
+    climberConfig.encoder.velocityConversionFactor(1.0);
+    climberConfig.closedLoop
+      .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+      // Set PID values for velocity control in slot 0
+      .p(CLIMBER_MOTOR_P, ClosedLoopSlot.kSlot0) // proportional
+      .i(CLIMBER_MOTOR_I, ClosedLoopSlot.kSlot0) // integral
+      .d(CLIMBER_MOTOR_D, ClosedLoopSlot.kSlot0) // derivitave
+      .outputRange(-1, 1, ClosedLoopSlot.kSlot0);
+    // for testnig limit switch input
+    climberConfig.softLimit
+      .forwardSoftLimit(CLIMBER_MOTOR_FWD_LIMIT)
+      .forwardSoftLimitEnabled(false)
+      .reverseSoftLimit(CLIMBER_MOTOR_REV_LIMIT)
+      .reverseSoftLimitEnabled(false);
+
     climber_leaderMotor.configure(climberConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     SparkFlexConfig climberfollowerConfig = new SparkFlexConfig();
@@ -62,6 +87,14 @@ public class ClimberSubsystem extends SubsystemBase {
   //public void setfeederRoller(double voltage) {
     //feederRoller.setVoltage(voltage);
   //}
+
+  public void setcClimberlVelocity(double velocity) {
+    ClimberClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  public double getintakeLowerVelocity() {
+    return ClimberEncoder.getVelocity();
+  }
 
   // A method to stop the rollers
   public void stop() {
