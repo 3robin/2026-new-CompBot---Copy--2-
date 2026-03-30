@@ -3,57 +3,57 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.3853132530120478,
-        "y": 4.854578313253012
+        "x": 2.620373493975903,
+        "y": 1.161012048192772
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.642228915662651,
-        "y": 4.843650602409639
+        "x": 3.0137710843346293,
+        "y": 0.6255542168730994
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.07933734939759,
-        "y": 7.0838313253012055
+        "x": 4.620144578310533,
+        "y": 0.6036987951863511
       },
       "prevControl": {
-        "x": 2.929781626506024,
-        "y": 6.671779791039158
+        "x": 3.3730372482347697,
+        "y": 0.6265814984904912
       },
       "nextControl": {
-        "x": 3.228893072289156,
-        "y": 7.495882859563253
+        "x": 5.811265060238245,
+        "y": 0.5818433734996062
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.363,
-        "y": 7.400734939759036
+        "x": 8.324638554214149,
+        "y": 1.3140000000056284
       },
       "prevControl": {
-        "x": 6.757478684011724,
-        "y": 7.55468103704419
+        "x": 7.9650535808251535,
+        "y": 0.8606102509499372
       },
       "nextControl": {
-        "x": 8.007734939759036,
-        "y": 7.2368192771084345
+        "x": 8.827313253009327,
+        "y": 1.94780722892129
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.811036144578313,
-        "y": 4.668807228915662
+        "x": 8.149795180720172,
+        "y": 3.44490361446346
       },
       "prevControl": {
-        "x": 7.98587951807229,
-        "y": 5.772506024096385
+        "x": 8.312493024084166,
+        "y": 3.2550894638721357
       },
       "nextControl": null,
       "isLocked": false,
@@ -62,12 +62,12 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1.4116182572613871,
+      "waypointRelativePos": 0.9609958506223788,
       "rotationDegrees": 0.0
     },
     {
-      "waypointRelativePos": 2.4373443983402323,
-      "rotationDegrees": -106.6272386383568
+      "waypointRelativePos": 2.3925311203318986,
+      "rotationDegrees": 50.82363498199227
     }
   ],
   "constraintZones": [],
@@ -82,14 +82,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": -135.76389846092997
+    "velocity": 0.75,
+    "rotation": 109.98310652190004
   },
   "reversed": false,
-  "folder": "Other Team member's bad ones",
+  "folder": "Right under trench loop in center and return to shoot",
   "idealStartingState": {
-    "velocity": 0,
-    "rotation": 0.0
+    "velocity": 1.25,
+    "rotation": -43.436381690188455
   },
   "useDefaultConstraints": true
 }

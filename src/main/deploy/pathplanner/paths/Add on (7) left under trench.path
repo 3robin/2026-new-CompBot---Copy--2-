@@ -3,53 +3,48 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.6831427443632654,
-        "y": 5.956390870179927
+        "x": 0.45668674698406375,
+        "y": 5.040349397590362
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.6952127098184346,
-        "y": 6.233371491027184
+        "x": 0.9156506024096385,
+        "y": 5.018493975903613
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.554578313253014,
-        "y": 7.477228915662651
+        "x": 2.0958433734939756,
+        "y": 5.040349397590362
       },
       "prevControl": {
-        "x": 3.3962409638554236,
-        "y": 7.488156626506025
+        "x": 1.6478072289156627,
+        "y": 5.018493975903613
       },
       "nextControl": {
-        "x": 5.855836953887619,
-        "y": 7.464952890751003
+        "x": 2.4675857691799816,
+        "y": 5.058483172989681
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.526915662650129,
-        "y": 6.7669277108379156
+        "x": 1.855433734939759,
+        "y": 5.7943614457831325
       },
       "prevControl": {
-        "x": 7.329799830430616,
-        "y": 6.6131572693076635
+        "x": 1.4292530120481928,
+        "y": 5.750650602409638
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.9190551181102512,
-      "rotationDegrees": 180.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -62,14 +57,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": -90.0
+    "velocity": 0.75,
+    "rotation": -131.87786953788424
   },
   "reversed": false,
-  "folder": "Left starting - depot & shoot",
+  "folder": "Left under trench loop in center and return to shoot",
   "idealStartingState": {
-    "velocity": 0,
-    "rotation": -132.6153052483957
+    "velocity": 1.25,
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

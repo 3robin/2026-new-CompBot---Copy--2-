@@ -7,13 +7,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "1 middle shoot and score"
+            "pathName": "1 left under trench"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "intake_arm_down"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "2 left under trench"
           }
         },
         {
@@ -25,25 +31,44 @@
         {
           "type": "path",
           "data": {
-            "pathName": "2 middle shoot and score"
+            "pathName": "3 left under trench"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": null
+            "name": "intake_arm_up"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "3 middle shoot and score"
+            "pathName": "4 left under trench"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "shoot"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 2.0
+                }
+              }
+            ]
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "shoot"
+            "name": "vertical_transfer"
           }
         }
       ]

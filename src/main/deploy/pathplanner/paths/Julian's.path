@@ -61,7 +61,7 @@
     "rotation": 180.0
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Other Team member's bad ones",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

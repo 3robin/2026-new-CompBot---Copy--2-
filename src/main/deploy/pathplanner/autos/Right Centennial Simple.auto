@@ -14,6 +14,6 @@
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "Centennial not used",
   "choreoAuto": false
 }

@@ -3,48 +3,53 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.42344578313253,
-        "y": 7.433518072289157
+        "x": 6.314,
+        "y": 1.03
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.669204819277109,
-        "y": 7.335168674698796
+        "x": 5.953325301204819,
+        "y": 0.669265060240964
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.1444457831325305,
-        "y": 7.1493975903614455
+        "x": 4.412518072289157,
+        "y": 0.6474096385542167
       },
       "prevControl": {
-        "x": 6.601396107742479,
-        "y": 7.606018118004505
+        "x": 4.9806498325375665,
+        "y": 0.6585494769904598
       },
       "nextControl": {
-        "x": 7.780176490601589,
-        "y": 6.614846693383349
+        "x": 2.740578313253012,
+        "y": 0.6146265060240969
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.582,
-        "y": 4.811
+        "x": 2.620373493975903,
+        "y": 1.161012048192772
       },
       "prevControl": {
-        "x": 7.549216867463657,
-        "y": 5.24810843373134
+        "x": 2.783071337339895,
+        "y": 0.9711978976014478
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.9377593360995561,
+      "rotationDegrees": -90.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -57,14 +62,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": -90.0
+    "velocity": 0.75,
+    "rotation": -43.99491399474575
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Right under trench loop in center and return to shoot",
   "idealStartingState": {
-    "velocity": 0,
-    "rotation": 0.0
+    "velocity": 1.25,
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

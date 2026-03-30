@@ -3,57 +3,57 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.597,
-        "y": 4.727
+        "x": 7.537843373493976,
+        "y": 3.455831325301205
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.964253012048193,
-        "y": 2.6034698795180726
+        "x": 7.735783424108415,
+        "y": 3.9659632775959923
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.095385542168674,
-        "y": 7.182180722891567
+        "x": 6.292084337349398,
+        "y": 0.9861686746987948
       },
       "prevControl": {
-        "x": 6.62408827468478,
-        "y": 6.939497501408764
+        "x": 6.97831590175446,
+        "y": 1.5034554192567136
       },
       "nextControl": {
-        "x": 5.428795180722891,
-        "y": 7.488156626506025
+        "x": 5.898492993949722,
+        "y": 0.6894764278332486
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.6529277108433735,
-        "y": 7.4553734939759035
+        "x": 4.073759036144579,
+        "y": 0.6036987951807224
       },
       "prevControl": {
-        "x": 4.9026917504321395,
-        "y": 7.444514187906827
+        "x": 4.515968587348592,
+        "y": 0.5954588656551816
       },
       "nextControl": {
-        "x": 4.401590361445783,
-        "y": 7.466301204819277
+        "x": 2.3143975903614455,
+        "y": 0.6364819277108436
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.6040963855421686,
-        "y": 5.991060240963854
+        "x": 1.4073975903548035,
+        "y": 2.002445783129265
       },
       "prevControl": {
-        "x": 1.5603855421686752,
-        "y": 7.608361445783132
+        "x": 1.516674698795181,
+        "y": 1.7620361445783135
       },
       "nextControl": null,
       "isLocked": false,
@@ -62,8 +62,8 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 2.029045643153486,
-      "rotationDegrees": -90.35926832635303
+      "waypointRelativePos": 2.1136929460580802,
+      "rotationDegrees": 180.0
     }
   ],
   "constraintZones": [],
@@ -78,14 +78,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0.0,
-    "rotation": -128.23382517744707
+    "velocity": 0.75,
+    "rotation": -65.55604521851332
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Start under right Trench - Go Middle and Shoot",
   "idealStartingState": {
-    "velocity": 0.5,
-    "rotation": -119.33438224194131
+    "velocity": 0,
+    "rotation": 97.16841221565764
   },
   "useDefaultConstraints": true
 }

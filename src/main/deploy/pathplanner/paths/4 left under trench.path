@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5820120481927713,
-        "y": 7.378879518072289
+        "x": 6.0079638554213135,
+        "y": 7.422590361450821
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.59431141326617,
-        "y": 7.378879518072289
+        "x": 5.454633022971526,
+        "y": 7.438589143922751
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 8.303,
-        "y": 7.378879518072289
+        "x": 3.8989156626549395,
+        "y": 7.422590361450821
       },
       "prevControl": {
-        "x": 7.364269693281904,
-        "y": 7.378879518072289
+        "x": 4.226746987956144,
+        "y": 7.444445783130773
       },
       "nextControl": null,
       "isLocked": false,
@@ -41,14 +41,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": 0.0
+    "velocity": 0.75,
+    "rotation": -177.56335175264942
   },
   "reversed": false,
-  "folder": "Centennial not used",
+  "folder": "Left under trench loop in center and return to shoot",
   "idealStartingState": {
-    "velocity": 0,
-    "rotation": 0.0
+    "velocity": 1.25,
+    "rotation": -179.61821021902628
   },
   "useDefaultConstraints": true
 }

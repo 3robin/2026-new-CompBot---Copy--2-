@@ -7,7 +7,37 @@
         {
           "type": "path",
           "data": {
-            "pathName": "middle starting postiton"
+            "pathName": "1 right middle shoot and score"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "intake_arm_down"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "intake_roller"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "2 right middle shoot and score"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "intake_arm_up"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "3 right middle shoot and score"
           }
         },
         {
@@ -39,6 +69,6 @@
     }
   },
   "resetOdom": true,
-  "folder": "Basic Autos",
+  "folder": null,
   "choreoAuto": false
 }

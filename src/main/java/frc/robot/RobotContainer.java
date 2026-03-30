@@ -137,7 +137,7 @@ public class RobotContainer
 
     NamedCommands.registerCommand("shoot", (new Shoot(flywheelSubsystem)));
 
-    NamedCommands.registerCommand("horizontal_transfer", (new HorizontalTransfer(HTSubsystem)));
+    // NamedCommands.registerCommand("horizontal_transfer", (new HorizontalTransfer(HTSubsystem)));
 
     NamedCommands.registerCommand("vertical_transfer", (new VerticalTransfer(VTSubsystem)));
 

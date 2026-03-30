@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.9484337349397589,
-        "y": 2.5925421686746986
+        "x": 4.42344578313253,
+        "y": 0.6474096385542167
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9484337349397591,
-        "y": 2.5925421686746986
+        "x": 5.3960120481927705,
+        "y": 0.669265060240964
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.2432530120481924,
-        "y": 2.5925421686746986
+        "x": 7.668975903614458,
+        "y": 1.087
       },
       "prevControl": {
-        "x": 2.2432530120481924,
-        "y": 2.5925421686746986
+        "x": 7.494132530120482,
+        "y": 0.7566867469879515
       },
       "nextControl": null,
       "isLocked": false,
@@ -41,11 +41,11 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": 0.0
+    "velocity": 1.25,
+    "rotation": 83.4294577411017
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Start under right Trench - Go Middle and Shoot",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

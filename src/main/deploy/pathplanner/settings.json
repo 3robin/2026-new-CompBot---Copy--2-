@@ -2,8 +2,20 @@
   "robotWidth": 0.864,
   "robotLength": 0.864,
   "holonomicMode": true,
-  "pathFolders": [],
-  "autoFolders": [],
+  "pathFolders": [
+    "3 Starting Basic Autos",
+    "Centennial not used",
+    "Left starting - depot & shoot",
+    "Left under trench loop in center and return to shoot",
+    "Right under trench loop in center and return to shoot",
+    "Other Team member's bad ones",
+    "Start under left Trench - Go Middle and Shoot",
+    "Start under right Trench - Go Middle and Shoot"
+  ],
+  "autoFolders": [
+    "Centennial not used",
+    "Basic Autos"
+  ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
   "defaultMaxAngVel": 540.0,
