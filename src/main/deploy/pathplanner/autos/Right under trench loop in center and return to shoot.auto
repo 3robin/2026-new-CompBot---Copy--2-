@@ -23,15 +23,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "intake_roller"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "3 right under trench"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "3 right under trench"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake_roller"
+                }
+              }
+            ]
           }
         },
         {

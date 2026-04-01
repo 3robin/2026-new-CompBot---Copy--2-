@@ -17,15 +17,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "intake_roller"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "2 left middle shoot and score"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "2 left middle shoot and score"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake_roller"
+                }
+              }
+            ]
           }
         },
         {
