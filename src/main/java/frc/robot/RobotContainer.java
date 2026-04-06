@@ -31,6 +31,7 @@ import frc.robot.commands.IntakeSpin;
 import frc.robot.commands.IntakeRaise;
 import frc.robot.commands.IntakeReverseSpin;
 import frc.robot.commands.Shoot;
+import frc.robot.commands.VerticalReverseTransfer;
 import frc.robot.commands.HorizontalTransfer;
 import frc.robot.commands.VerticalTransfer;
 import frc.robot.subsystems.flywheelShooterSubsystem;
@@ -236,19 +237,25 @@ public class RobotContainer
       driverXbox.b().and(driverXbox.a()).onTrue((Commands.runOnce(drivebase::zeroGyro)));
 
 
-      // operatorController.leftBumper().whileTrue(Commands.parallel(
-      //   new Shoot(flywheelSubsystem),
-      //   new HorizontalTransfer(HTSubsystem),
-      //   new VerticalTransfer(VTSubsystem)
-      // )
-      // );
+      operatorController.rightTrigger().whileTrue(Commands.parallel(
+        new Shoot(flywheelSubsystem),
+        new VerticalTransfer(VTSubsystem)));
+
+
       // ^need to delay until shooter is up to speed
 
       // whole transfer system 
 
 
-      operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
+
+      // operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
       flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
+
+
+
+      operatorController.leftTrigger().whileTrue(new VerticalTransfer(VTSubsystem));
+      operatorController.b().whileTrue(new VerticalReverseTransfer(VTSubsystem));
+      VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
       // operatorController.leftBumper().whileTrue(new NegIntakeLower(intakeSubsystem));
       // intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
@@ -274,9 +281,6 @@ public class RobotContainer
       // operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
       // operatorController.b().whileTrue(new HorizontalReverseTransfer(HTSubsystem));
       // HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
-
-      operatorController.leftTrigger().whileTrue(new VerticalTransfer(VTSubsystem));
-      VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
       // operatorController.b().whileTrue(new Climb(climberSubsystem));
       // climberSubsystem.setDefaultCommand(climberSubsystem.run(() -> climberSubsystem.stop()));

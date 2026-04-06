@@ -66,8 +66,8 @@ public class VerticalTransferSubsystem extends SubsystemBase {
     Vertical_Transfer_1Motor.configure(VerticalTransfer1Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     SparkFlexConfig VerticalTransfer2Config = new SparkFlexConfig();
-    VerticalTransfer2Config.inverted(false);
-    VerticalTransfer2Config.smartCurrentLimit(VERTICAL_TRANSFER_1_CURRENT_LIMIT);
+    VerticalTransfer2Config.inverted(true);
+    VerticalTransfer2Config.smartCurrentLimit(VERTICAL_TRANSFER_2_CURRENT_LIMIT);
 
     VerticalTransfer2Config.encoder.positionConversionFactor(1.0);
     VerticalTransfer2Config.encoder.velocityConversionFactor(1.0);
@@ -85,7 +85,7 @@ public class VerticalTransferSubsystem extends SubsystemBase {
       .reverseSoftLimit(VERTICAL_TRANSFER_2_MOTOR_REV_LIMIT)
       .reverseSoftLimitEnabled(false);
 
-    Vertical_Transfer_1Motor.configure(VerticalTransfer2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    Vertical_Transfer_2Motor.configure(VerticalTransfer2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     // create the configuration for the launcher roller, set a current limit, set
     // the motor to inverted so that positive values are used for both intaking and

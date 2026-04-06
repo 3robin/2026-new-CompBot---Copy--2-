@@ -32,7 +32,7 @@ public class IntakeLower extends Command {
   @Override
   public void initialize() {
     intakeSubsystem
-      .setintakeLowerVelocity(INTAKE_LOWER_VELOCITY);
+      .setintakeLowerPosition(INTAKE_LOWER_POSITION);
   }
 
   // Called every time the scheduler runs while the command is scheduled. This

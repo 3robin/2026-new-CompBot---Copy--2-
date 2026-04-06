@@ -28,6 +28,7 @@ public class IntakeSubsystem extends SubsystemBase {
   private final SparkClosedLoopController intakeLowerClosedLoopController;
   private final RelativeEncoder intakeSpinEncoder;
   private final SparkClosedLoopController intakeSpinClosedLoopController;
+  private final double intakeZeroPosition;
 
   /** Creates a new CANBallSubsystem. **/
 
@@ -81,6 +82,8 @@ public class IntakeSubsystem extends SubsystemBase {
 
     intake_lower_leaderMotor.configure(intakeLowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     
+    intakeZeroPosition = intake_lower_leaderMotor.getEncoder().getPosition();
+
     SparkFlexConfig intakeLowerFollowerConfig = new SparkFlexConfig();
     intakeLowerFollowerConfig.smartCurrentLimit(INTAKE_LOWER_CURRENT_LIMIT);
     intakeLowerFollowerConfig.follow(INTAKE_LOWER_LEADER_ID,true);
@@ -165,12 +168,22 @@ public class IntakeSubsystem extends SubsystemBase {
     intakeLowerClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
 
+  // position pid
+  public void setintakeLowerPosition(double position) {
+    intakeLowerClosedLoopController.setSetpoint(position + intakeZeroPosition, ControlType.kPosition, ClosedLoopSlot.kSlot0);
+  }
+
   public double getintakeLowerVelocity() {
     return intakeLowerEncoder.getVelocity();
   }
 
   public void setintakeRaiseVelocity(double velocity) {
     intakeLowerClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
+  }
+
+  // position pid
+  public void setintakeRaisePosition(double position) {
+    intakeLowerClosedLoopController.setSetpoint(intakeZeroPosition, ControlType.kPosition, ClosedLoopSlot.kSlot0);
   }
 
   public double getintakeRaiseVelocity() {
