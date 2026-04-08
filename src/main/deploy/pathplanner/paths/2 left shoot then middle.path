@@ -3,32 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5311029340573725,
-        "y": 5.956390870179927
+        "x": 2.706376604850214,
+        "y": 1.4666761768901564
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.995959958227481,
-        "y": 5.956390870179927
+        "x": 1.7359771754636228,
+        "y": 0.5350927246790309
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 0.97,
-        "y": 5.956
+        "x": 7.28666191155492,
+        "y": 1.2467189728958648
       },
       "prevControl": {
-        "x": 1.3047323305687892,
-        "y": 5.956
+        "x": 7.053766048502139,
+        "y": 0.2763195435092749
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 0.7228144989339012,
+      "rotationDegrees": 12.081271891601327
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,13 +51,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.37874511483145
+    "rotation": 90.0
   },
   "reversed": false,
-  "folder": "z (Old) Left starting - depot & shoot",
+  "folder": "2 a little less basic",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.7966964871558
+    "rotation": -43.40885972880545
   },
   "useDefaultConstraints": true
 }

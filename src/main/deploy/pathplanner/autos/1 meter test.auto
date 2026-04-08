@@ -7,13 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "No time - Centennial Playoffs - drive to middle"
+            "pathName": "move 1 meter"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Centennial not used",
+  "folder": null,
   "choreoAuto": false
 }

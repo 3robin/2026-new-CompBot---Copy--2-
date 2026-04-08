@@ -37,7 +37,7 @@
       },
       "prevControl": {
         "x": 2.783071337339895,
-        "y": 0.9711978976014478
+        "y": 0.9711978976014477
       },
       "nextControl": null,
       "isLocked": false,
@@ -54,10 +54,10 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
-    "maxAngularVelocity": 540.0,
-    "maxAngularAcceleration": 720.0,
+    "maxVelocity": 1.5,
+    "maxAcceleration": 1.5,
+    "maxAngularVelocity": 270.0,
+    "maxAngularAcceleration": 360.0,
     "nominalVoltage": 12.0,
     "unlimited": false
   },
@@ -66,7 +66,7 @@
     "rotation": -43.99491399474575
   },
   "reversed": false,
-  "folder": "Right under trench loop in center and return to shoot",
+  "folder": "Right Under Trench",
   "idealStartingState": {
     "velocity": 1.25,
     "rotation": -90.0

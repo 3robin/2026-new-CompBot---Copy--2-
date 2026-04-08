@@ -74,10 +74,10 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
-    "maxAngularVelocity": 540.0,
-    "maxAngularAcceleration": 720.0,
+    "maxVelocity": 1.5,
+    "maxAcceleration": 1.5,
+    "maxAngularVelocity": 270.0,
+    "maxAngularAcceleration": 360.0,
     "nominalVoltage": 12.0,
     "unlimited": false
   },
@@ -86,7 +86,7 @@
     "rotation": 109.98310652190004
   },
   "reversed": false,
-  "folder": "Right under trench loop in center and return to shoot",
+  "folder": "Right Under Trench",
   "idealStartingState": {
     "velocity": 1.25,
     "rotation": -43.436381690188455

@@ -70,10 +70,10 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
-    "maxAngularVelocity": 540.0,
-    "maxAngularAcceleration": 720.0,
+    "maxVelocity": 1.5,
+    "maxAcceleration": 1.5,
+    "maxAngularVelocity": 270.0,
+    "maxAngularAcceleration": 360.0,
     "nominalVoltage": 12.0,
     "unlimited": false
   },
@@ -82,7 +82,7 @@
     "rotation": -65.55604521851332
   },
   "reversed": false,
-  "folder": "Start under right Trench - Go Middle and Shoot",
+  "folder": "Right middle shoot and score",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 97.16841221565764

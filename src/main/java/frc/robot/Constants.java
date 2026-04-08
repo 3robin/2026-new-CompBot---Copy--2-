@@ -63,7 +63,7 @@ public final class Constants
     public static final double SHOOTER_FLYWHEEL_VOLTAGE = 5.8; //Sets speed
     public static final double voltage = 1;
 
-    public static final double SHOOTER_FLYWHEEL_VELOCITY = 4500; //3500
+    public static final double SHOOTER_FLYWHEEL_VELOCITY = 3500; //3500
 
     // setting velocity constants
     public static final double FLYWHEEL_MOTOR_P = 0.002;
@@ -99,7 +99,7 @@ public final class Constants
 
     public static final double INTAKE_LOWER_VELOCITY = 1200;
     public static final double INTAKE_LOWER_VELOCITY_INV = -2400;
-    public static final double INTAKE_SPIN_VELOCITY = 4600;
+    public static final double INTAKE_SPIN_VELOCITY = 7000;
     public static final double INTAKE_SPIN_REV_VELOCITY = -1800;
 
     public static final double INTAKE_LOWER_POSITION = 3.89;

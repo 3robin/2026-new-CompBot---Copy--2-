@@ -11,6 +11,12 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "intake_arm_down"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
@@ -23,16 +29,29 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 2.0
+                  "waitTime": 1.0
                 }
               }
             ]
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "vertical_transfer"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "shoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "vertical_transfer"
+                }
+              }
+            ]
           }
         }
       ]

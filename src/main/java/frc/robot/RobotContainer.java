@@ -80,7 +80,7 @@ public class RobotContainer
                                                             .withControllerRotationAxis(driverXbox::getRightX)
                                                             .deadband(OperatorConstants.DEADBAND)
                                                             .scaleTranslation(0.8)
-                                                            .allianceRelativeControl(false);
+                                                            .allianceRelativeControl(true);
 
   /**
    * Clone's the angular velocity input stream and converts it to a fieldRelative input stream.
@@ -237,10 +237,13 @@ public class RobotContainer
       driverXbox.b().and(driverXbox.a()).onTrue((Commands.runOnce(drivebase::zeroGyro)));
 
 
-      operatorController.rightTrigger().whileTrue(Commands.parallel(
-        new Shoot(flywheelSubsystem),
-        new VerticalTransfer(VTSubsystem)));
+      // operatorController.rightTrigger().whileTrue(Commands.parallel(
+      //   new Shoot(flywheelSubsystem),
+      //   Commands.sequence(command.wait(1.0), new VerticalTransfer(VTSubsystem)));
 
+      operatorController.rightTrigger().whileTrue(Commands.parallel
+      (new Shoot(flywheelSubsystem),
+      Commands.sequence(Commands.waitSeconds(1.0),new VerticalTransfer(VTSubsystem))));
 
       // ^need to delay until shooter is up to speed
 
