@@ -11,6 +11,12 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "intake_arm_down"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
@@ -23,7 +29,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 3.0
+                  "waitTime": 1.0
                 }
               }
             ]
@@ -34,22 +40,15 @@
           "data": {
             "commands": [
               {
-                "type": "parallel",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "horizontal_transfer"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "vertical_transfer"
-                      }
-                    }
-                  ]
+                  "name": "shoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "vertical_transfer"
                 }
               }
             ]
@@ -59,6 +58,6 @@
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "Basic Autos",
   "choreoAuto": false
 }

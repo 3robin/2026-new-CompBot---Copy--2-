@@ -63,7 +63,7 @@ public final class Constants
     public static final double SHOOTER_FLYWHEEL_VOLTAGE = 5.8; //Sets speed
     public static final double voltage = 1;
 
-    public static final double SHOOTER_FLYWHEEL_VELOCITY = 500; //3500
+    public static final double SHOOTER_FLYWHEEL_VELOCITY = 3500; //3500
 
     // setting velocity constants
     public static final double FLYWHEEL_MOTOR_P = 0.002;
@@ -96,6 +96,30 @@ public final class Constants
     public static final double INTAKE_SPIN_VOLTAGE = 6;
     public static final double INTAKE_REV_SPIN_VOLTAGE = -3; // -3 is guess, to be tuned
     public static final double voltage = 1;
+
+    public static final double INTAKE_LOWER_VELOCITY = 1200;
+    public static final double INTAKE_LOWER_VELOCITY_INV = -2400;
+    public static final double INTAKE_SPIN_VELOCITY = 8000;
+    public static final double INTAKE_SPIN_REV_VELOCITY = -1800;
+
+    public static final double INTAKE_LOWER_POSITION = 3.89;
+    public static final double INTAKE_LOWER_POSITION_INV = 0;
+
+    // setting velocity constants
+    public static final double INTAKE_LOWER_MOTOR_P = 0.1;
+    public static final double INTAKE_LOWER_MOTOR_I = 0;
+    public static final double INTAKE_LOWER_MOTOR_D = 0;
+
+    public static final double INTAKE_LOWER_MOTOR_FWD_LIMIT = 0;
+    public static final double INTAKE_LOWER_MOTOR_REV_LIMIT = 0;
+
+    // setting velocity constants
+    public static final double INTAKE_SPIN_MOTOR_P = 0.0001;
+    public static final double INTAKE_SPIN_MOTOR_I = 0;
+    public static final double INTAKE_SPIN_MOTOR_D = 0;
+
+    public static final double INTAKE_SPIN_MOTOR_FWD_LIMIT = 0;
+    public static final double INTAKE_SPIN_MOTOR_REV_LIMIT = 0;
   }
 
   public static final class HorizontalTransferConstants {
@@ -111,6 +135,17 @@ public final class Constants
     public static final double HORIZONTAL_TRANSFER_VOLTAGE = 6;
     public static final double HORIZONTAL_REV_TRANSFER_VOLTAGE = -6; // -6 is guess, to be tuned
     public static final double voltage = 1;
+
+    public static final double HORIZONTAL_TRANSFER_VELOCITY = 3600;
+    public static final double HORIZONTAL_TRANSFER_REV_VELOCITY = -3600;
+
+    // setting velocity constants
+    public static final double HORIZONTAL_TRANSFER_MOTOR_P = 0.001;
+    public static final double HORIZONTAL_TRANSFER_MOTOR_I = 0;
+    public static final double HORIZONTAL_TRANSFER_MOTOR_D = 0;
+
+    public static final double HORIZONTAL_TRANSFER_MOTOR_FWD_LIMIT = 0;
+    public static final double HORIZONTAL_TRANSFER_MOTOR_REV_LIMIT = 0;
   }
 
   public static final class VerticalTransferConstants {
@@ -128,6 +163,28 @@ public final class Constants
     public static final double VERTICAL_TRANSFER_1_VOLTAGE = 3;
     public static final double VERTICAL_TRANSFER_2_VOLTAGE = 3;
     public static final double voltage = 1;
+
+    public static final double VERTICAL_TRANSFER_1_VELOCITY = 1800;
+    public static final double VERTICAL_TRANSFER_2_VELOCITY = 1800;
+
+    public static final double VERTICAL_TRANSFER_REV_1_VELOCITY = -1800;
+    public static final double VERTICAL_TRANSFER_REV_2_VELOCITY = -1800;
+
+    // setting velocity constants
+    public static final double VERTICAL_TRANSFER_1_MOTOR_P = 0.0001;
+    public static final double VERTICAL_TRANSFER_1_MOTOR_I = 0;
+    public static final double VERTICAL_TRANSFER_1_MOTOR_D = 0;
+
+    public static final double VERTICAL_TRANSFER_1_MOTOR_FWD_LIMIT = 0;
+    public static final double VERTICAL_TRANSFER_1_MOTOR_REV_LIMIT = 0;
+
+    // setting velocity constants
+    public static final double VERTICAL_TRANSFER_2_MOTOR_P = 0.0001;
+    public static final double VERTICAL_TRANSFER_2_MOTOR_I = 0;
+    public static final double VERTICAL_TRANSFER_2_MOTOR_D = 0;
+
+    public static final double VERTICAL_TRANSFER_2_MOTOR_FWD_LIMIT = 0;
+    public static final double VERTICAL_TRANSFER_2_MOTOR_REV_LIMIT = 0;
   }
 
   public static final class ClimberConstants {
@@ -143,6 +200,16 @@ public final class Constants
     // See the Software Guide for tuning information
     public static final double CLIMBER_VOLTAGE = 1;
     public static final double voltage = 1;
+
+    public static final double CLIMBER_VELOCITY = 600;
+
+    // setting velocity constants
+    public static final double CLIMBER_MOTOR_P = 0.001;
+    public static final double CLIMBER_MOTOR_I = 0;
+    public static final double CLIMBER_MOTOR_D = 0;
+
+    public static final double CLIMBER_MOTOR_FWD_LIMIT = 0;
+    public static final double CLIMBER_MOTOR_REV_LIMIT = 0;
   }
 
 }

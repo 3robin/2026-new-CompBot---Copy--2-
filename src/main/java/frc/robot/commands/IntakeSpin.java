@@ -48,10 +48,16 @@ public class IntakeSpin extends Command {
   // }
 
 
-    @Override
-    public void initialize() {
-        intakeSubsystem.setIntakeSpin(SmartDashboard.getNumber("intake spin value", INTAKE_SPIN_VOLTAGE));  
-    }
+    // @Override
+    // public void initialize() {
+    //     intakeSubsystem.setIntakeSpin(SmartDashboard.getNumber("intake spin value", INTAKE_SPIN_VOLTAGE));  
+    // }
+
+  @Override
+  public void initialize() {
+    intakeSubsystem
+        .setintakeSpinVelocity(INTAKE_SPIN_VELOCITY);
+  }
 
     @Override
     public boolean isFinished() {

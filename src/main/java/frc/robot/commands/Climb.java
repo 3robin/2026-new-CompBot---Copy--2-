@@ -23,13 +23,17 @@ public class Climb extends Command {
   // Called when the command is initially scheduled. Set the rollers to the
  // appropriate values for intaking
 
+  // @Override
+  // public void initialize() {
+  //   climberSubsystem
+  //     .setClimber(
+  //       SmartDashboard.getNumber("climber value", CLIMBER_VOLTAGE));
+  // }
+
   @Override
   public void initialize() {
     climberSubsystem
-      .setClimber(
-        SmartDashboard.getNumber("climber value", CLIMBER_VOLTAGE));
-  
-    // fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Launching feeder roller value", LAUNCHING_FEEDER_VOLTAGE));
+        .setClimberVelocity(CLIMBER_VELOCITY);
   }
 
   // Called every time the scheduler runs while the command is scheduled. This

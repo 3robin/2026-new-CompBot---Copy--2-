@@ -23,35 +23,22 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 3.0
+                  "waitTime": 2.0
                 }
               }
             ]
           }
         },
         {
-          "type": "parallel",
+          "type": "named",
           "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "horizontal_transfer"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "vertical_transfer"
-                }
-              }
-            ]
+            "name": "vertical_transfer"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "Basic Autos",
   "choreoAuto": false
 }

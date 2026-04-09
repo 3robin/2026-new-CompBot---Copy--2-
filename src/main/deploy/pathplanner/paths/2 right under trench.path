@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.9484337349397589,
-        "y": 2.5925421686746986
+        "x": 5.909614457831326,
+        "y": 0.691
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.9484337349397591,
-        "y": 2.5925421686746986
+        "x": 6.860325301203587,
+        "y": 0.7576590361452533
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.2432530120481924,
-        "y": 2.5925421686746986
+        "x": 7.67990361445783,
+        "y": 1.2812168674698796
       },
       "prevControl": {
-        "x": 2.2432530120481924,
-        "y": 2.5925421686746986
+        "x": 7.624343579865579,
+        "y": 0.77233734939759
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,21 +33,21 @@
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
-    "maxAngularVelocity": 540.0,
-    "maxAngularAcceleration": 720.0,
+    "maxVelocity": 0.75,
+    "maxAcceleration": 0.75,
+    "maxAngularVelocity": 270.0,
+    "maxAngularAcceleration": 360.0,
     "nominalVoltage": 12.0,
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0,
-    "rotation": 0.0
+    "velocity": 1.25,
+    "rotation": 90.0
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Right Under Trench",
   "idealStartingState": {
-    "velocity": 0,
+    "velocity": 1.25,
     "rotation": 0.0
   },
   "useDefaultConstraints": true

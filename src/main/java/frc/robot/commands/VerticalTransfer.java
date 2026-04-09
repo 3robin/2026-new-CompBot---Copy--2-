@@ -26,16 +26,22 @@ public class VerticalTransfer extends Command {
 
 // Called when the command is initially scheduled. Set the rollers to the
  // appropriate values for intaking
+  // @Override
+  // public void initialize() {
+  //   VTSubsystem
+  //       .setVerticalTransfer((
+  //           SmartDashboard.getNumber("vertical transfer 1 value", VERTICAL_TRANSFER_1_VOLTAGE)),
+  //               SmartDashboard.getNumber("vertical transfer 2 value", VERTICAL_TRANSFER_2_VOLTAGE));
+  // }
+
   @Override
   public void initialize() {
     VTSubsystem
-        .setVerticalTransfer((
-            SmartDashboard.getNumber("vertical transfer 1 value", VERTICAL_TRANSFER_1_VOLTAGE)),
-                SmartDashboard.getNumber("vertical transfer 2 value", VERTICAL_TRANSFER_2_VOLTAGE));
-
-    // fuelSubsystem.setFeederRoller(SmartDashboard.getNumber("Launching feeder roller value", LAUNCHING_FEEDER_VOLTAGE));
+      .setVerticalTransfer1Velocity(VERTICAL_TRANSFER_1_VELOCITY);
+    VTSubsystem
+      .setVerticalTransfer2Velocity(VERTICAL_TRANSFER_2_VELOCITY);
   }
-
+  
   // Called every time the scheduler runs while the command is scheduled. This
   // command doesn't require updating any values while running
   @Override

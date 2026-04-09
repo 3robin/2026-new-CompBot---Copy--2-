@@ -19,9 +19,15 @@ public class HorizontalReverseTransfer extends Command {
         this.HTSubsystem = HorizontalSystem;
     }
 
+    // @Override
+    // public void initialize() {
+    //     HTSubsystem.setHorizontalTransfer(HORIZONTAL_REV_TRANSFER_VOLTAGE);
+    // }
+
     @Override
     public void initialize() {
-        HTSubsystem.setHorizontalTransfer(HORIZONTAL_REV_TRANSFER_VOLTAGE);
+      HTSubsystem
+          .setHorizontalReverseTransferVelocity(HORIZONTAL_TRANSFER_REV_VELOCITY);
     }
 
     // Called every time the scheduler runs while the command is scheduled. This

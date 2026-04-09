@@ -1,0 +1,59 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.669,
+        "y": 6.887
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.778253012048193,
+        "y": 5.81621686746988
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.597,
+        "y": 4.727
+      },
+      "prevControl": {
+        "x": 7.6073164263821775,
+        "y": 4.403297679431027
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0,
+      "rotationDegrees": -119.99999999999999
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 0.75,
+    "maxAcceleration": 0.75,
+    "maxAngularVelocity": 270.0,
+    "maxAngularAcceleration": 360.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0.75,
+    "rotation": -110.61039644555841
+  },
+  "reversed": false,
+  "folder": "Left middle shoot and score",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -94.64037012419055
+  },
+  "useDefaultConstraints": true
+}

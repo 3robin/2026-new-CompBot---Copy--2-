@@ -31,6 +31,7 @@ import frc.robot.commands.IntakeSpin;
 import frc.robot.commands.IntakeRaise;
 import frc.robot.commands.IntakeReverseSpin;
 import frc.robot.commands.Shoot;
+import frc.robot.commands.VerticalReverseTransfer;
 import frc.robot.commands.HorizontalTransfer;
 import frc.robot.commands.VerticalTransfer;
 import frc.robot.subsystems.flywheelShooterSubsystem;
@@ -101,7 +102,7 @@ public class RobotContainer
                                                                         2))
                                                                     .deadband(OperatorConstants.DEADBAND)
                                                                     .scaleTranslation(0.8)
-                                                                    .allianceRelativeControl(true);
+                                                                    .allianceRelativeControl(false);
   // Derive the heading axis with math!
   SwerveInputStream driveDirectAngleKeyboard     = driveAngularVelocityKeyboard.copy()
                                                                                .withControllerHeadingAxis(() ->
@@ -137,14 +138,15 @@ public class RobotContainer
 
     NamedCommands.registerCommand("shoot", (new Shoot(flywheelSubsystem)));
 
-    NamedCommands.registerCommand("horizontal_transfer", Commands.print("I EXIST"));
+    // NamedCommands.registerCommand("horizontal_transfer", (new HorizontalTransfer(HTSubsystem)));
 
-    NamedCommands.registerCommand("vertical+_transfer", Commands.print("I EXIST"));
+    NamedCommands.registerCommand("vertical_transfer", (new VerticalTransfer(VTSubsystem)));
+  
+    NamedCommands.registerCommand("intake_roller", (new IntakeSpin(intakeSubsystem)));
 
-    NamedCommands.registerCommand("intake_roller", Commands.print("I EXIST"));
+    NamedCommands.registerCommand("intake_arm_down", (new IntakeLower(intakeSubsystem)));
 
-    NamedCommands.registerCommand("intake_arm", Commands.print("I EXIST"));
-
+    NamedCommands.registerCommand("intake_arm_up", (new IntakeRaise(intakeSubsystem)));
 
 
     //Have the autoChooser pull in all PathPlanner autos as options
@@ -235,19 +237,28 @@ public class RobotContainer
       driverXbox.b().and(driverXbox.a()).onTrue((Commands.runOnce(drivebase::zeroGyro)));
 
 
-      // operatorController.leftBumper().whileTrue(Commands.parallel(
+      // operatorController.rightTrigger().whileTrue(Commands.parallel(
       //   new Shoot(flywheelSubsystem),
-      //   new HorizontalTransfer(HTSubsystem),
-      //   new VerticalTransfer(VTSubsystem)
-      // )
-      // );
+      //   Commands.sequence(command.wait(1.0), new VerticalTransfer(VTSubsystem)));
+
+      operatorController.rightTrigger().whileTrue(Commands.parallel
+      (new Shoot(flywheelSubsystem),
+      Commands.sequence(Commands.waitSeconds(1.0),new VerticalTransfer(VTSubsystem))));
+
       // ^need to delay until shooter is up to speed
 
       // whole transfer system 
 
 
-      operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
+
+      // operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
       flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
+
+
+
+      operatorController.leftTrigger().whileTrue(new VerticalTransfer(VTSubsystem));
+      operatorController.b().whileTrue(new VerticalReverseTransfer(VTSubsystem));
+      VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
       // operatorController.leftBumper().whileTrue(new NegIntakeLower(intakeSubsystem));
       // intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
@@ -259,23 +270,20 @@ public class RobotContainer
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
 
-      operatorController.leftTrigger().whileTrue(
-        new ParallelCommandGroup(
-          new HorizontalTransfer(HTSubsystem),
-          new VerticalTransfer(VTSubsystem)
-        )
-      ); 
+      // operatorController.leftTrigger().whileTrue(
+      //   new ParallelCommandGroup(
+      //     new HorizontalTransfer(HTSubsystem),
+      //     new VerticalTransfer(VTSubsystem)
+      //   )
+      // ); 
 
       operatorController.x().whileTrue(new IntakeSpin(intakeSubsystem));
       operatorController.a().whileTrue(new IntakeReverseSpin(intakeSubsystem));
       intakeSubsystem.setDefaultCommand(intakeSubsystem.run(() -> intakeSubsystem.stop()));
 
-      operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
-      operatorController.b().whileTrue(new HorizontalReverseTransfer(HTSubsystem));
-      HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
-
-      // operatorController.a().whileTrue(new VerticalTransfer(VTSubsystem));
-      VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
+      // operatorController.y().whileTrue(new HorizontalTransfer(HTSubsystem));
+      // operatorController.b().whileTrue(new HorizontalReverseTransfer(HTSubsystem));
+      // HTSubsystem.setDefaultCommand(HTSubsystem.run(() -> HTSubsystem.stop()));
 
       // operatorController.b().whileTrue(new Climb(climberSubsystem));
       // climberSubsystem.setDefaultCommand(climberSubsystem.run(() -> climberSubsystem.stop()));

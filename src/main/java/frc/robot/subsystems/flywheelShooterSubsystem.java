@@ -48,6 +48,8 @@ public class flywheelShooterSubsystem extends SubsystemBase {
 
     flywheelConfig.encoder.positionConversionFactor(1.0);
     flywheelConfig.encoder.velocityConversionFactor(1.0);
+    // modify default filter for flywheel PID control
+    flywheelConfig.encoder.quadratureAverageDepth(2).quadratureMeasurementPeriod(8);
     flywheelConfig.closedLoop
       .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
       // Set PID values for velocity control in slot 0
@@ -83,10 +85,9 @@ public class flywheelShooterSubsystem extends SubsystemBase {
     flywheel_leaderMotor.setVoltage(voltage);
   }
 
-  public void setflywheelShooterlVelocity(double velocity) {
+  public void setflywheelShooterVelocity(double velocity) {
     flywheelClosedLoopController.setSetpoint(velocity, ControlType.kVelocity, ClosedLoopSlot.kSlot0);
   }
-
 
   public double getflywheelShooterVelocity() {
     return flywheelShooterEncoder.getVelocity();

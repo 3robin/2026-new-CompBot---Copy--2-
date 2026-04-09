@@ -22,12 +22,17 @@ public class IntakeRaise extends Command {
 
   // Called when the command is initially scheduled. Set the rollers to the
  // appropriate values for intaking
+  // @Override
+  // public void initialize() {
+  //   intakeSubsystem
+  //       .setIntakeRaise(
+  //            SmartDashboard.getNumber("intake lower value", INTAKE_LOWER_VOLTAGE_INV));
+  // }
+
   @Override
   public void initialize() {
     intakeSubsystem
-        .setIntakeRaise(
-             SmartDashboard.getNumber("intake lower value", INTAKE_LOWER_VOLTAGE_INV));
-    
+      .setintakeRaisePosition(INTAKE_LOWER_POSITION_INV);
   }
 
   // Called every time the scheduler runs while the command is scheduled. This
