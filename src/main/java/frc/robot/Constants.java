@@ -99,7 +99,7 @@ public final class Constants
 
     public static final double INTAKE_LOWER_VELOCITY = 1200;
     public static final double INTAKE_LOWER_VELOCITY_INV = -2400;
-    public static final double INTAKE_SPIN_VELOCITY = 7000;
+    public static final double INTAKE_SPIN_VELOCITY = 8000;
     public static final double INTAKE_SPIN_REV_VELOCITY = -1800;
 
     public static final double INTAKE_LOWER_POSITION = 3.89;
