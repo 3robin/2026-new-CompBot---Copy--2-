@@ -5,9 +5,15 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "reset_gyro"
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "Don't Move right trench"
+            "pathName": "new right trench"
           }
         },
         {

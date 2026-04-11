@@ -148,6 +148,11 @@ public class RobotContainer
 
     NamedCommands.registerCommand("intake_arm_up", (new IntakeRaise(intakeSubsystem)));
 
+    NamedCommands.registerCommand("reset_gyro", (Commands.runOnce(drivebase::zeroGyro)));
+
+          // driverXbox.b().and(driverXbox.a()).onTrue((Commands.runOnce(drivebase::zeroGyro)));
+
+
 
     //Have the autoChooser pull in all PathPlanner autos as options
     autoChooser = AutoBuilder.buildAutoChooser();
