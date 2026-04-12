@@ -256,12 +256,12 @@ public class RobotContainer
 
 
 
-      // operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
+      operatorController.leftTrigger().whileTrue(new Shoot(flywheelSubsystem));
       flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
 
 
 
-      operatorController.leftTrigger().whileTrue(new VerticalTransfer(VTSubsystem));
+      operatorController.y().whileTrue(new VerticalTransfer(VTSubsystem));
       operatorController.b().whileTrue(new VerticalReverseTransfer(VTSubsystem));
       VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
