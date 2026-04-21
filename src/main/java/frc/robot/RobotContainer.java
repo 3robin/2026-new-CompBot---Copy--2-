@@ -148,6 +148,11 @@ public class RobotContainer
 
     NamedCommands.registerCommand("intake_arm_up", (new IntakeRaise(intakeSubsystem)));
 
+    NamedCommands.registerCommand("reset_gyro", (Commands.runOnce(drivebase::zeroGyro)));
+
+          // driverXbox.b().and(driverXbox.a()).onTrue((Commands.runOnce(drivebase::zeroGyro)));
+
+
 
     //Have the autoChooser pull in all PathPlanner autos as options
     autoChooser = AutoBuilder.buildAutoChooser();
@@ -251,12 +256,12 @@ public class RobotContainer
 
 
 
-      // operatorController.rightTrigger().whileTrue(new Shoot(flywheelSubsystem));
+      operatorController.leftTrigger().whileTrue(new Shoot(flywheelSubsystem));
       flywheelSubsystem.setDefaultCommand(flywheelSubsystem.run(() -> flywheelSubsystem.stop()));
 
 
 
-      operatorController.leftTrigger().whileTrue(new VerticalTransfer(VTSubsystem));
+      operatorController.y().whileTrue(new VerticalTransfer(VTSubsystem));
       operatorController.b().whileTrue(new VerticalReverseTransfer(VTSubsystem));
       VTSubsystem.setDefaultCommand(VTSubsystem.run(() -> VTSubsystem.stop()));
 
